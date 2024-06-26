@@ -22,19 +22,6 @@ const authConfig = {
         //old guest do nothing
         //new guest then update database
 
-        // name: { type: String, required: [true, "A guest name is required"] },
-        // email: {
-        //   type: String,
-        // },
-        // nationality: {
-        //   type: String,
-        // },
-        // nationalId: {
-        //   type: String,
-        // },
-        // countryFlag: {
-        //   type: String,
-        // },
         const newUser = await createGuest({
           name: user.name,
           email: user.email,
