@@ -3,8 +3,8 @@
 import { differenceInDays } from "date-fns";
 import { useDate } from "./DateContext";
 import { createBooking } from "../_lib/actions";
-import { useFormStatus } from "react-dom";
 import Image from "next/image";
+import { Button } from "./Button";
 
 function ReservationForm({ cabin, user }) {
   // CHANGE
@@ -91,23 +91,10 @@ function ReservationForm({ cabin, user }) {
         <div className="flex justify-end items-center gap-6">
           <p className="text-primary-300 text-base">Start by selecting dates</p>
 
-          <Button />
+          <Button updating="Reserving.." buttonname="Reserve Now" />
         </div>
       </form>
     </div>
-  );
-}
-
-function Button() {
-  const { pending } = useFormStatus();
-
-  return (
-    <button
-      disabled={pending}
-      className="bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300"
-    >
-      {pending ? "Reserving..." : "Reserve now"}
-    </button>
   );
 }
 

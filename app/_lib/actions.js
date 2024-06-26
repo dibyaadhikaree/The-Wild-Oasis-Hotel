@@ -49,6 +49,20 @@ export async function deleteBooking(id) {
 
   redirect("/account/reservations");
 }
+
+export async function updateBooking(id, toUpdate) {
+  const res = await fetch(baseUrl + "bookings/" + id, {
+    method: "PATCH",
+    body: JSON.stringify(toUpdate),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await res.json();
+
+  revalidatePath("/reservations");
+  redirect("/account/reservations");
+}
 export async function createBooking(booking) {
   const res = await fetch(baseUrl + "bookings/", {
     method: "POST",

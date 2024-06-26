@@ -66,6 +66,16 @@ export async function getBooking(id) {
   return data;
 }
 
+export async function getBookingById(id) {
+  const res = await fetch(baseUrl + "bookings/" + id, {
+    method: "GET",
+  });
+
+  const data = await res.json();
+
+  return data;
+}
+
 export async function getBookedDatesByCabinId(cabinId) {
   let today = new Date();
   today.setUTCHours(0, 0, 0, 0);
